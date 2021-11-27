@@ -1,9 +1,9 @@
 /usr/bin/python2
 # -*- coding: utf-8
 
-#AUTHOR : AZIM VAU (MR. ERROR)
+#AUTHOR : Eniolahacking
 #OPEN SOURCE :)
-#DON'T FORGET TO GIVE CREDIT TO MR. ERROR
+#DON'T FORGET TO GIVE CREDIT TO itz efk
 
 P = "\033[97;1m" 
 M = "\033[91;1m" 
@@ -13,6 +13,8 @@ B = "\033[94;1m"
 U = "\033[95;1m" 
 O = "\033[93;1m" 
 N = "\033[0m"
+V = "\033[93;1m" 
+G = "\033[93;1m" 
 
 try:
 	import 
